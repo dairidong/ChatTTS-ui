@@ -1,10 +1,6 @@
 FROM pytorch/torchserve:0.11.0-cpu as builder
 
-RUN chown -R model-server:model-server /app
-
 WORKDIR /app
-
-USER model-server:model-server
 
 COPY . ./
 
