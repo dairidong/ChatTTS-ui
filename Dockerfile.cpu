@@ -1,7 +1,13 @@
 FROM pytorch/torchserve:0.11.0-cpu as builder
 
+RUN chown -R model-server:model-server /app
+
 WORKDIR /app
+
+USER model-server:model-server
 
 COPY . ./
 
 RUN pip install -r requirements.txt -i https://pypi.tuna.tsinghua.edu.cn/simple
+
+ENTRYPOINT python app.py
