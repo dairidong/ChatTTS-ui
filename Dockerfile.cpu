@@ -6,7 +6,7 @@ COPY . ./
 
 USER root
 
-RUN chown -R 1000:1000 /app
+RUN chown -R 1000:1000 /app && chmod -R 775 /app
 
 USER 1000
 
